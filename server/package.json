@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "Server for Autonomous-Shuttle",
+  "license": "MIT",
+  "author": "Kaan K.",
+  "keywords": [
+    "express",
+    "middleware"
+  ],
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "connect-timeout": "^1.9.0",
+    "cookie-parser": "1.4.3",
+    "express": "4.15.3",
+    "mongoose": "4.10.3",
+    "mongoose-auto-increment": "^5.0.1",
+    "morgan": "1.8.2",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "rimraf": "^2.6.2",
+    "rx": "^4.1.0",
+    "rxjs": "5.1.0",
+    "uuid": "^3.1.0",
+    "watson-developer-cloud": "^3.0.3",
+    "winston": "^2.3.1"
+  }
+}

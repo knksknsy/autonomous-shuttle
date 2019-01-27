@@ -1,0 +1,201 @@
+<div class="container formular py-2 mt-10 rounded" [hidden]="isCameraMode || isDisclaimer">
+    <div class="col-12 mt-2">
+
+        <form (submit)="toggleCamera(registerForm.value)" [formGroup]="registerForm">
+            <h2 class="pb-2 text-muted">Anmeldeformular</h2>
+            <hr>
+            <!-- Passenger information -->
+            <div formGroupName="passenger" class="row">
+                <div class="form-group col-md-6">
+                    <label class="" for="name">Name</label>
+                    <input type="text" placeholder="Name eingeben" class="form-control" id="name" required formControlName="name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="" for="instagram_profile">Instagram Nutzername, falls nicht privat</label>
+                    <input type="text" placeholder="Instagram" class="form-control" id="instagram_profile" formControlName="instagram_profile">
+                </div>
+            </div>
+
+            <!-- Questions of interests -->
+            <label class="">Interessen</label>
+            <div class="container-interests col-12 rounded-top">
+                <label class="text pt-2" for="animals">{{questionAnimals}}</label>
+                <div class="container p-1">
+                    <div class="pl-4 mb-0 form-check form-check-inline" id="animals" *ngFor="let animal of animals; let i = index;">
+                        <input class="mb-0 form-check-input" type="checkbox" (click)="handleAnimal(animal, i)" [checked]="animal.selected">
+                        <label class="mb-0">{{animal.value}}</label>
+                    </div>
+                    <input class="input" placeholder="Sonstiges" [(ngModel)]="customAnimal" [ngModelOptions]="{standalone: true}">
+                </div>
+                <hr>
+            </div>
+            <div class="container-interests col-12">
+                <label class="text pt-2" for="technologies">{{questionTechnologies}}</label>
+                <div class="container p-1">
+                    <div class="pl-4 mb-0form-check form-check-inline" id="technilogies" *ngFor="let technology of technologies; let i = index;">
+                        <input class="mb-0 form-check-input" type="checkbox" (click)="handleTechnologies(technology, i)" [checked]="technology.selected">
+                        <label class="mb-0">{{technology.value}}</label>
+                    </div>
+                    <input class="input" placeholder="Sonstiges" [(ngModel)]="customTechnology" [ngModelOptions]="{standalone: true}">
+                </div>
+                <hr>
+            </div>
+            <div class="container-interests col-12">
+                <label class="text pt-2" for="movies">{{questionMovies}}</label>
+                <div class="container p-1">
+                    <div class="pl-4 mb-0 form-check form-check-inline" id="movies" *ngFor="let movie of movies; let i = index;">
+                        <input class="mb-0 form-check-input" type="checkbox" (click)="handleMovies(movie, i)" [checked]="movie.selected">
+                        <label class="mb-0">{{movie.value}}</label>
+                    </div>
+                    <input class="input" placeholder="Sonstiges" [(ngModel)]="customMovie" [ngModelOptions]="{standalone: true}">
+                </div>
+                <hr>
+            </div>
+            <div class="container-interests col-12">
+                <label class="text pt-2" for="vacations">{{questionVacation}}</label>
+                <div class="container p-1">
+                    <div class="pl-4 mb-0 form-check form-check-inline" id="vacations" *ngFor="let vacation of vacations; let i = index;">
+                        <input class="mb-0 form-check-input" type="checkbox" (click)="handleVacations(vacation, i)" [checked]="vacation.selected">
+                        <label class="mb-0">{{vacation.value}}</label>
+                    </div>
+                    <input class="input" placeholder="Sonstiges" [(ngModel)]="customVacation" [ngModelOptions]="{standalone: true}">
+                </div>
+                <hr>
+            </div>
+            <div class="container-interests col-12 rounded-bottom pb-2">
+                <label class="text pt-2" for="sports">{{questionSports}}</label>
+                <div class="container p-1">
+                    <div class="pl-4 mb-0 form-check form-check-inline" id="sports" *ngFor="let sport of sports; let i = index;">
+                        <input class="mb-0 form-check-input" type="checkbox" (click)="handleSports(sport, i)" [checked]="sport.selected">
+                        <label class="mb-0">{{sport.value}}</label>
+                    </div>
+                    <input class="input" placeholder="Sonstiges" [(ngModel)]="customSport" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+            <!-- Haltestelle auswählen -->
+            <div class="row pt-2">
+                <div class="form-group col-md-6">
+                    <label for="station">Startpunkt</label>
+                    <select class="form-control" id="station" required formControlName="station" (change)="onStationChanged($event.target.value)">
+                        <option *ngFor="let s of departureStation" [value]="s.value">{{s.label}}</option>
+                    </select>
+                </div>
+
+                <!-- Startzeit auswählen -->
+                <div class="form-group col-md-6">
+                    <label for="datetime">Startzeitpunkt</label>
+                    <select class="form-control" id="datetime" required formControlName="datetime">
+                        <option *ngFor="let timeslot of timeslots; let i = index" [value]="timeslot" [selected]="index === 0">{{timeslot | date:'HH:mm - dd.MM.yyyy'}}</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Weiter-Button -->
+            <div class="form-group ">
+                <div class="pull-right">
+                    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Weiter</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="container disclaimer py-2" [hidden]="!isCameraMode || isBookingActive ">
+    <div class="p-4">
+        <h2>Information zur Studie und zum Datenschutz</h2>
+    </div>
+    <div class="disclaimer-outer">
+        <p class="disclaimer-para">
+        Sehr geehrte Dame, sehr geehrter Herr,
+        </p>
+        <p class="disclaimer-para">
+        Sie haben heute die Möglichkeit, an einer wissenschaftlichen Untersuchung teilzunehmen.
+        </p>
+        <p class="disclaimer-para">
+        Es wird das Verhalten in einem geschlossenen Umfeld mit einer fremden Person im Rahmen unseres interdisziplinären Projektes  getestet. 
+        </p>
+        <p class="disclaimer-para">
+        Ziel ist es, das Verhalten in einer realistischen Umgebung darzustellen. Versetzen Sie sich in die Lage ein autonomes Shuttle zu nutzen.
+        Das autonome fahren wird nur simuliert, in diesem Fall steuert ein menschlicher Fahrer das Fahrzeug. 
+        Die Fahrzeit beträgt ca. 10 Minuten.
+        Während der Fahrt werden Foto- und Videoaufnahmen gemacht, damit der Studienverlauf später besser nachvollzogen und ausgewertet werden kann.
+        Nach der Fahrt werden ihnen einige Fragen zur Fahrt gestellt, die auf Video aufgezeichnet werden.
+        Diese Aufnahmen werden - sofern Sie nicht mit Ihrer Einwilligung veröffentlicht wurden - 10 Jahre lang verschlossen aufbewahrt und danach vernichtet.
+        </p>
+        <p class="disclaimer-para">
+        Im Rahmen dieser wissenschaftlichen Untersuchung werden wir zu dem folgende Daten über Sie erheben: Name, Interessen, ein Foto zur Emotionserkennung und ggf. öffentlich zugängliche Instagram-Daten. Diese Daten werden vertraulich behandelt .
+        </p>
+        <p class="disclaimer-para">
+        Wir bitten Sie im Folgenden, Ihre Einverständniserklärung an der Studie zu bestätigen.  Sollten Sie jetzt oder später noch Fragen haben, dürfen Sie sich gerne an den Studienleiter (siehe oben) wenden.
+        </p>
+    </div>    <button type="button" class="btn btn-danger" (click)="cancelDisclaimer()">Abbrechen</button>
+    <button type="button" class="btn btn-primary" (click)="openCameraView()">Akzeptieren</button>
+</div>
+
+<!-- Camera -->
+<div class="fixed-top full-width" [hidden]="!isBookingActive || !isCameraMode">
+    <div class="fullscreen-video-wrap" [hidden]="showVideo">
+        <video class="full-width" #videoplayer autoplay></video>
+    </div>
+
+    <div class="fullscreen-video-wrap" [hidden]="!showVideo">
+        <canvas class="full-width" #canvas [width]="width" [height]="height"></canvas>
+    </div>
+    <div class="fixed-bottom row col-12 buttons">
+        <div class="container">
+            <button type="button" class="btn btn-lg btn-secondary col-md-6" id="snap" (click)="capture()" [hidden]="showVideo">Schnappschuss</button>
+            <button type="button" class="btn btn-lg btn-secondary col-md-6" id="retrake" (click)="showVideo = !showVideo" [hidden]="!showVideo">Neues Foto</button>
+            <button type="button" class="btn btn-lg btn-primary col-md-6" id="buchen" data-toggle="modal" data-target="#exampleModal"
+                (click)="btnBook()" [disabled]="!showVideo">Buchen</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isBookingModalShown" [config]="bookingModalConfig" (onHidden)="onBookingModalHidden()" bsModal #bookingModal="bs-modal"
+    class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Booking</h4>
+            </div>
+            <div class="modal-body">
+                Processing booking...
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isCompleteModalShown" [config]="modalConfig" (onHidden)="onCompleteModalHidden()" bsModal #completeModal="bs-modal"
+    class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Booking successful</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="closeCompleteModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your ride was successfully booked.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isErrorModalShown" [config]="modalConfig" (onHidden)="onErrorModalHidden()" bsModal #errorModal="bs-modal"
+    class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Booking error</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="closeErrorModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                The booking process could not be completed. Please reenter your information.
+            </div>
+        </div>
+    </div>
+</div>

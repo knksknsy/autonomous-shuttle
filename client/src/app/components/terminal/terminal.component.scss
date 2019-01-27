@@ -1,0 +1,39 @@
+.selection {
+  width: 100%;
+}
+.userinput {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+// .button-wrap {
+//   margin-left: 3%;
+// }
+// .log-history {
+//   margin-left: 3%;
+// }
+.container-fluid {
+  // text-align: center;
+  font-size: 0.8em;
+}
+
+p {
+  margin: 0;
+}
+
+.line:first-child {
+  border-right: 1px black solid;
+}
+
+.line {
+  border-bottom: 1px black solid;
+}
+
+.dotted:first-child {
+  border-right: 1px black dashed;
+}
+
+audio {
+  min-width: 100%;
+}

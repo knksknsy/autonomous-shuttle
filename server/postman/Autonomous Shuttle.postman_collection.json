@@ -1,0 +1,312 @@
+{
+	"info": {
+		"name": "Autonomous Shuttle",
+		"_postman_id": "e1166527-0dcb-f85c-c6f1-db7a4f4b6c66",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Booking",
+			"description": "",
+			"item": [
+				{
+					"name": "Booking Test Passenger 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"datetime\": 1517162400000.0,\n    \"station\": \"HdM\",\n    \"passenger\": {\n        \"name\": \"Dan Bilzerian\",\n        \"instagram_profile\": \"katjas.landscapes\",\n        \"interests\": {\n        \t\"animals\": [\"Schlange\"],\n        \t\"technology\": [\"Laptop\", \"TV\"],\n        \t\"movies\": [\"Komödie\"],\n        \t\"vacations\": [\"Abenteuerurlaub\", \"Strandurlaub\", \"Partyurlaub\"],\n        \t\"sports\": [\"Fußball\"]\n        },\n        \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCADwAUADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAZEAEAAwEBAAAAAAAAAAAAAAAAARFBIXH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6TWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcwAAJmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/2Q==\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://casi.one:3000/booking",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"booking"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Booking Test Passenger 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"datetime\": 1517162400000.0,\n    \"station\": \"Pavillon\",\n    \"passenger\": {\n        \"name\": \"Wolfgang Gruel\",\n        \"instagram_profile\": \"twilfgang\",\n        \"interests\": {\n        \t\"animals\": [\"Schlange\"],\n        \t\"technology\": [\"Laptop\", \"TV\"],\n        \t\"movies\": [\"Komödie\"],\n        \t\"vacations\": [\"Abenteuerurlaub\", \"Strandurlaub\", \"Partyurlaub\"],\n        \t\"sports\": [\"Basketball\"]\n        },\n        \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCADwAUADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAZEAEAAwEBAAAAAAAAAAAAAAAAARFBIXH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6TWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcwAAJmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/2Q==\"\n    }\n}"
+						},
+						"url": {
+							"raw": "https://casi.one:3000/booking",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"booking"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "booking/scraper",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/booking/scraper",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"booking",
+								"scraper"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete timeslot",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"datetime\": 1516298400000,\n\t\"station\": \"HdM\"\n}"
+						},
+						"url": {
+							"raw": "https://casi.one:3000/booking/",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"booking",
+								""
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mocks",
+			"description": "",
+			"item": [
+				{
+					"name": "Booking",
+					"description": "",
+					"item": [
+						{
+							"name": "Passenger 1+2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": [\n        {\n            \"datetime\": 1515952800000.0,\n            \"station\": \"HdM\",\n            \"passenger\": {\n                \"name\": \"Dan Bilzerian\",\n                \"instagram_profile\": \"danbilzerian\",\n                \"interests\": {\n\t\t        \t\"animals\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"technology\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"movies\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"vacation\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"sports\": [\"a\", \"b\", \"c\"]\n\t\t        },\n                \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCADwAUADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAZEAEAAwEBAAAAAAAAAAAAAAAAARFBIXH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6TWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcwAAJmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/2Q==\",\n        \t\t\"emotion\": \"sadness\"\n            }\n        },\n        {\n            \"datetime\": 1515952800000.0,\n            \"station\": \"Pavillon\",\n            \"passenger\": {\n                \"name\": \"Humaidal Buqaish\",\n                \"instagram_profile\": \"humaidalbuqaish\",\n                \"interests\": {\n\t\t        \t\"animals\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"technology\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"movies\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"vacation\": [\"a\", \"b\", \"c\"],\n\t\t        \t\"sports\": [\"a\", \"b\", \"c\"]\n\t\t        },\n                \"image\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCADwAUADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAZEAEAAwEBAAAAAAAAAAAAAAAAARFBIXH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB6TWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcwAAJmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/2Q==\",\n        \t\t\"emotion\": \"sadness\"\n            }\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "https://casi.one:3000/booking/mock",
+									"protocol": "https",
+									"host": [
+										"casi",
+										"one"
+									],
+									"port": "3000",
+									"path": [
+										"booking",
+										"mock"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Terminal",
+			"description": "",
+			"item": [
+				{
+					"name": "timeslots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/terminal/timeslots",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"terminal",
+								"timeslots"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get/:ids",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/terminal/get/:ids",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"terminal",
+								"get",
+								":ids"
+							],
+							"variable": [
+								{
+									"key": "ids",
+									"value": "5a60ebe15d339357eb585c02-5a60ebe15d339357eb585c0e"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timeslot",
+			"description": "",
+			"item": [
+				{
+					"name": "/timeslot/:station",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/timeslot/:station",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot",
+								":station"
+							],
+							"variable": [
+								{
+									"key": "station",
+									"value": "HdM"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/timeslot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/timeslot",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/timeslot",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://casi.one:3000/timeslot",
+							"protocol": "https",
+							"host": [
+								"casi",
+								"one"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

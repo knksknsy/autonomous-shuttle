@@ -1,0 +1,43 @@
+version: "3"
+services:
+
+  asbackend:
+    restart: always
+    image: mongo:latest # build from DockerHub
+    container_name: asbackend
+    ports:
+      - "27017:27017"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "420k"
+        max-file: "13"
+
+  asserver:
+    restart: always
+    build: ./server # build from Dockerfile in directory
+    container_name: asserver
+    ports:
+      - "3000:3000"
+    links:
+      - "asbackend"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "420k"
+        max-file: "13"
+
+  asclient:
+    restart: always
+    build: ./client # build from Dockerfile in directory
+    container_name: asclient
+    ports:
+      - "4200:4200"
+    links:
+      - "asbackend"
+      - "asserver"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "420k"
+        max-file: "13"

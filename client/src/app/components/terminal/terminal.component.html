@@ -1,0 +1,152 @@
+<div class="container-fluid">
+  <!-- passengers' information -->
+  <div class="row">
+    <div class="col-6 line" *ngFor="let passenger of terminalData.passengers; let i = index">
+      <div class="row">
+        <div class="col-6">
+          <p>
+            <strong>Name:</strong> {{passenger.name}}</p>
+        </div>
+        <div class="col-6">
+          <p class="text-right">
+            <strong>Station:</strong> {{passenger.station}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img [src]="passenger.image" class="rounded mx-auto d-block" width="62%">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="text-center">
+            <strong>Emotion:</strong> {{passenger.emotion}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>
+            <strong>Default Interests</strong>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col" *ngFor="let interestKey of interestsKeys">
+          <p>
+            <strong>{{interestKey | uppercase}}</strong>
+          </p>
+          <ul class="list-unstyled">
+            <li *ngFor="let interest of getPassengerInterests(i, interestKey)">{{interest}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" *ngIf="passenger.instagram_interests.length">
+        <div class="col">
+          <p>
+            <strong>Instagram</strong>
+          </p>
+        </div>
+      </div>
+      <div class="row" *ngIf="passenger.instagram_interests.length">
+        <div class="col">
+          <ul class="list-unstyled">
+            <li *ngFor="let instagram of passenger.instagram_interests">{{instagram}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- matched interests: if !conversation-->
+  <div class="row" *ngIf="!terminalData.passengers[0].instagram_interests.length || !terminalData.passengers[1].instagram_interests.length">
+    <div class="col">
+      <p>
+        <strong>Matched Interests</strong>
+      </p>
+    </div>
+  </div>
+  <div class="row" *ngIf="!terminalData.passengers[0].instagram_interests.length || !terminalData.passengers[1].instagram_interests.length">
+    <div class="col" *ngFor="let interestKey of interestsKeys">
+      <p>
+        <strong>{{interestKey | uppercase}}</strong>
+      </p>
+      <ul class="list-unstyled">
+        <li *ngFor="let mInterest of getMatchedInterests(interestKey)">{{mInterest}}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- matched interests: if conversation-->
+  <div class="row" *ngIf="terminalData.passengers[0].instagram_interests.length && terminalData.passengers[1].instagram_interests.length">
+    <div class="col-6 dotted">
+      <p>
+        <strong>Matched Interests</strong>
+      </p>
+      <div class="row">
+        <div class="col" *ngFor="let interestKey of interestsKeys">
+          <p>
+            <strong>{{interestKey | uppercase}}</strong>
+          </p>
+          <ul class="list-unstyled">
+            <li *ngFor="let mInterest of getMatchedInterests(interestKey)">{{mInterest}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 dotted">
+      <p>
+        <strong>Intagram Matches</strong>
+      </p>
+      <ul class="list-unstyled" *ngIf="terminalData.instagram_interests.length">
+        <li *ngFor="let mInstagram of terminalData.instagram_interests">{{mInstagram}}</li>
+      </ul>
+      <p *ngIf="!terminalData.instagram_interests.length">
+        <strong>No Matches</strong>
+      </p>
+    </div>
+  </div>
+  <!-- TTS -->
+  <div class="row">
+    <div class="col">
+      <select class="selection" (change)="onSelect($event.target.value)">
+        <option value="" disabled="true" [selected]="true">Commands</option>
+        <option *ngFor="let command of commands" [value]="command.value">{{command.label}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <select class="selection" (change)="onSelect($event.target.value)">
+        <option value="" disabled="true" [selected]="true">Common Interests</option>
+        <option *ngFor="let cInterest of common_interests" [value]="cInterest.value">{{cInterest.label}}</option>
+      </select>
+    </div>
+    <div class="col" *ngIf="diverse_interests.length">
+      <select class="selection" (change)="onSelect($event.target.value)">
+        <option value="" disabled="true" [selected]="true">Diverse Interests</option>
+        <option *ngFor="let dInterest of diverse_interests" [value]="dInterest.value">{{dInterest.label}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <select class="selection" (change)="onSelect($event.target.value)">
+        <option value="" disabled="true" [selected]="true">Instagram Interests</option>
+        <option *ngFor="let iInterest of instagram_interests" [value]="iInterest.value">{{iInterest.label}}</option>
+      </select>
+    </div>
+    <div class="col">
+        <select class="selection" (change)="onSelect($event.target.value)">
+          <option value="" disabled="true" [selected]="true">Activity Commands</option>
+          <option *ngFor="let activity of activities" [value]="activity.value">{{activity.label}}</option>
+        </select>
+      </div>
+  </div>
+  <div class="row">
+    <textarea class="userinput" ref-textarea [(ngModel)]="text" rows="4"></textarea>
+    <br/>
+    <div class="button-wrap">
+      <button (click)="synthesize()">Send to Watson</button>
+      <button (click)="text=''">Clear</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <audio controls="controls" autobuffer="autobuffer" autoplay="autoplay" [src]="audio"></audio>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+@import '_variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+/* You can add global styles to this file, and also import other style files */
+
+.leaflet-container.light {
+    background-color: rgb(204, 210, 212);
+}
+
+.leaflet-container.dark {
+    background-color: rgba(33, 32, 34, 0.67);
+}
+
+.card.card-inverse {
+    background-color: #191a1a;
+    border-color: #1c77b8;
+}
+
+body {
+    //background-color: #acacac;
+    //background-color: #323232
+    background-color: rgb(206, 206, 206);
+}
+
+.popover {
+    padding: 0;
+    border-color: #1c77b8;
+    .popover-content {
+        padding: 0;
+        .list-group {
+            .list-group-item.active {
+                background-color: #1c77b8;
+            }
+            .list-group-item {
+                background-color: #191a1a;
+                color: #fff;
+                padding: 0 15px 0 15px;
+            }
+        }
+    }
+}
